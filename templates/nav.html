@@ -1,0 +1,45 @@
+<div style="height: 2.8125rem; display: block; background: #333; margin-bottom: -2.8125rem">&nbsp;</div>
+<nav class="top-bar" data-topbar role="navigation" style="max-width: 62.5rem; margin: 0 auto;">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">&lambda;u.wap</a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+  <!-- Right Nav Section -->
+  <ul class="right">
+    <li $if(navhome)$ class="active" $endif$><a href="/">Home</a></li>
+    <li $if(navabout)$ class="active" $endif$><a href="/about.html">About</a></li>
+    <li $if(navcontact)$ class="active" $endif$><a href="/contact.html">Contact</a></li>
+    <li class="$if(navposts)$ active $endif$ has-dropdown">
+      <a href="/archive.html">Posts</a>
+      <ul class="dropdown">
+        $for(posts_recent10)$
+          <li><a href="$url$">$title$</a></li>
+        $endfor$
+        <li><a href="/archive.html">More Posts…</a></li>
+      </ul>
+    </li>
+    <li $if(navtags)$ class="active" $endif$><a href="/tags.html">Tags</a></li>
+    <li><a href="/feed.rss">RSS Feed</a></li>
+<!--    <li class="$if(navposts)$ active $endif$ has-dropdown">
+      <a href="#">Right Button Dropdown</a>
+      <ul class="dropdown">
+        <li><a href="#">First link in dropdown</a></li>
+        <li class="active"><a href="#">Active link in dropdown</a></li>
+      </ul>
+    </li>
+-->
+  </ul>
+
+  <!-- Left Nav Section -->
+<!--  <ul class="left">
+    <li><a href="#">Left Nav Button $url$</a></li>
+  </ul>
+-->
+  </section>
+</nav>
+

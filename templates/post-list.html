@@ -1,0 +1,24 @@
+<table border="1">
+    <tr>
+      <th>Post</th>
+      <th>Date</th>
+      <th>Tags</th>
+    </tr>
+    $for(posts_all)$
+        <tr>
+          <td>
+            <a href="$url$">$title$</a>
+          </td>
+          <td>
+            $date$
+          </td>
+          <td>
+            $if(tags)$ 
+              $tags$
+            $else$
+              /
+            $endif$
+          </td>
+        </tr>
+    $endfor$
+</table>

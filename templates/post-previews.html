@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="columns medium-6">
+    $for(posts_left)$
+    <div class="row">
+      <div class="columns medium-12 postblock">
+        <h2><a href="$url$">$title$</a></h2>
+        $partial("templates/post-preview.html")$
+      </div>
+    </div>
+    $endfor$
+  </div>
+  <div class="columns medium-6">
+    $for(posts_right)$
+    <div class="row">
+      <div class="columns medium-12 postblock">
+        <h2><a href="$url$">$title$</a></h2>
+        $partial("templates/post-preview.html")$
+      </div>
+    </div>
+    $endfor$
+  </div>
+</div>
+
+<div class="row">
+  <div class="colums small-12 text-center">
+    Looking for <a href="/archive.html">Older Posts</a>?<br/>
+    Check out the <a href="/archive.html">Archive Page</a>
+  </div>
+</div>
+

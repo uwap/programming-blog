@@ -1,0 +1,8 @@
+$partial("templates/post-info.html")$
+$if(teaser)$
+  $teaser$
+  <p><a href="$url$">Read more…</a></p>
+$else$
+  $body$
+$endif$
+$partial("templates/share-post.html")$

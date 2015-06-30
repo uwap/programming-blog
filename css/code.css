@@ -1,0 +1,29 @@
+code.sourceCode, table.sourceCode, tr.sourceCode,
+td.lineNumbers, td.sourceCode, table.sourceCode pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+table.sourceCode { border: 1px solid black; }
+td.lineNumbers {
+  border-right: 1px solid #AAA;
+  padding: 5px;
+  text-align: right;
+  color: #AAA;
+}
+td.sourceCode { padding: 5px; }
+
+.sourceCode span.kw { color: #007020; font-weight: bold; }
+.sourceCode span.dt { color: #902000; }
+.sourceCode span.dv { color: #40a070; }
+.sourceCode span.bn { color: #40a070; }
+.sourceCode span.fl { color: #40a070; }
+.sourceCode span.ch { color: #40a070; }
+.sourceCode span.st { color: #40a070; }
+.sourceCode span.co { color: #60a0b0; font-style: italic; }
+.sourceCode span.ot { color: #007020; }
+.sourceCode span.al { color: red; font-weight: bold; }
+.sourceCode span.fu { color: #06287e; }
+.sourceCode span.re { }
+.sourceCode span.er { color: red; font-weight: bold; }
