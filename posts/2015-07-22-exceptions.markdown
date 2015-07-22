@@ -139,7 +139,8 @@ Dependent types allow that. Below is some idris implementation for a safe head f
 
 ```{.idris .numberLines}
 head : (l : List a) -> {auto ok : NonEmpty l} -> a
-head (x :: _) = x
+head [] {ok = IsNonEmpty} impossible
+head (x :: xs) {ok = p} = x
 ```
 
 That forces you to prove your list has an element before tossing it into head.
