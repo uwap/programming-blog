@@ -74,7 +74,7 @@ main = hakyll $ do
     match "templates/*" $ compile templateCompiler
 --------------------------------------------------------------------------------
 globalContextWithoutPosts :: Context String
-globalContextWithoutPosts = field "tagcloud" (const $ renderTagCloud 100 3000 =<< getTags "posts/*")
+globalContextWithoutPosts = field "tagcloud" (const $ renderTagCloud 100 120 =<< getTags "posts/*")
                          <> defaultContext
 
 globalContext :: Context String
