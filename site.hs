@@ -110,9 +110,11 @@ indexCtx posts = listField "posts_left" postCtx (postsl posts)
               postsl = return . fmap snd . filter (((0 :: Int) /=) . (`mod` 2) . fst) . zip [1..]
               postsr = return . fmap snd . filter (((0 :: Int) ==) . (`mod` 2) . fst) . zip [1..]
 
-tagCtx :: String -> Context String
-tagCtx tag = constField "title" tag
-          <> globalContext
+tagCtx :: String -> Pattern -> Context String
+tagCtx tag pattern = constField "title" tag
+                  <> listField "posts_recent10" postCtx (fmap (take 10) . recentFirst =<< loadAll pattern)
+                  <> listField "posts_all" postCtx (recentFirst =<< loadAll pattern)
+                  <> globalContextWithoutPosts
 --------------------------------------------------------------------------------
 getPosts :: Maybe String -> Maybe Int -> Compiler [Item String]
 getPosts Nothing         Nothing    = recentFirst =<< loadAll "posts/*"
@@ -157,6 +159,6 @@ indexCompiler = do
 
 tagCompiler :: String -> Pattern -> Compiler (Item String)
 tagCompiler tag pattern = makeItem ""
-    >>= loadAndApplyTemplate "templates/tag.html" (tagCtx tag)
-    >>= loadAndApplyTemplate "templates/default.html" (tagCtx tag)
+    >>= loadAndApplyTemplate "templates/tag.html" (tagCtx tag pattern)
+    >>= loadAndApplyTemplate "templates/default.html" (tagCtx tag pattern)
     >>= relativizeUrls
